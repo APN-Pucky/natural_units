@@ -19,14 +19,10 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-        "uncertainties",
-        "numpy",
-        "matplotlib",
-        "jacobi",
-        # "requests",
     ],
     extras_require={
         'dev': [
+            "uncertainties",
             "build",
             "pytest",
             "pytest-cov",

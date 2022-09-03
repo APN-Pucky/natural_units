@@ -1,7 +1,38 @@
 from . import base_units as bu
 
+def _si_units_to_str(untis):
+    """Convert a dictionary of SI units to a string."""
+    ret = ""
+    for unit, power in untis.items():
+        unit = {"metre":"m","kilogram":"kg","second":"s","ampere":"A","kelvin":"K","mole":"mol","candela":"cd"}[unit]
+        if power == 1:
+            ret += unit
+        else:
+            ret += unit + "^" + power.__str__()
+    return ret
+
+def _in_si_units(units):
+    """Check if a dictionary of units is in SI units."""
+    return all([unit in ["metre","kilogram","second","ampere","kelvin","mole","candela"] for unit in units])
+
 class si_unit(bu.base_unit):
-	pass
+    def __str__(self):
+        if _in_si_units(self.units.keys()):
+            return self.value.__str__() + " " + _si_units_to_str(self.units) + ""
+        else:
+            return super().__str__()
+
+    def __repr__(self):
+        if _in_si_units(self.units.keys()):
+            return self.value.__repr__() + " " + _si_units_to_str(self.units) + ""
+        else:
+            return super().__repr__()
+
+    def __format__(self, fmt):
+        if _in_si_units(self.units.keys()):
+            return self.value.__format__(fmt) + " " + _si_units_to_str(self.units) + ""
+        else:
+            return super().__format__(fmt)
 
 # base units
 meter = metre = si_unit(1, {'metre': 1})

@@ -19,6 +19,24 @@ class natural_unit(bu.base_unit):
         if "massdimension" not in self.units.keys():
             print("set",self.units)
             self.units["massdimension"] = massdim
+        
+    def __str__(self):
+        if self.units.keys() == {"massdimension"}:
+            return self.value.__str__() + "[" + self.units["massdimension"].__str__() + "]"
+        else:
+            return super().__str__()
+
+    def __repr__(self):
+        if self.units.keys() == {"massdimension"}:
+            return self.value.__repr__() + "[" + self.units["massdimension"].__repr__() + "]"
+        else:
+            return super().__repr__()
+
+    def __format__(self, fmt):
+        if self.units.keys() == {"massdimension"}:
+            return self.value.__format__(fmt) + "[" + self.units["massdimension"].__repr__() + "]"
+        else:
+            return super().__format__(fmt)
 
 pi = math.pi
 
