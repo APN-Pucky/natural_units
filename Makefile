@@ -26,7 +26,7 @@ build:
 	python3 -m build
 
 livehtml:
-	sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) --watch smpl/
+	sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) --watch natural_units/
 
 test:
 	rm -f .coverage coverage.xml
@@ -43,7 +43,6 @@ pull: commit
 	git pull
 
 clean-all: clean
-	find source/example/ -type f -name '*.ipynb' | xargs jupyter nbconvert --clear-output --inplace
 
 
 release: push html
