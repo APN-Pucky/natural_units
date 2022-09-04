@@ -1,5 +1,5 @@
 import natural_units.si_units as si
-import natural_units.units as u
+import natural_units.num_units as u
 import natural_units.natural_units as nu
 
 def test_si():
