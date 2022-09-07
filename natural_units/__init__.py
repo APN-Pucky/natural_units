@@ -12,4 +12,4 @@ except pkg.DistributionNotFound:
 __version__ = version
 
 from .core import *
-from .num_units import *
+from .plain_natural import *

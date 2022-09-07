@@ -1,7 +1,7 @@
 import math
 
 from .prefix import *
-from . import base_units as bu
+from . import base as bu
 
 num = dict({'length': -1, 'mass': 1, 'time': -1,
            'temperature': 1, 'momentum': 1, 'energy': 1})

@@ -1,4 +1,5 @@
-from . import base_units as bu
+from . import base as bu
+import math
 
 def _si_units_to_str(untis):
     """Convert a dictionary of SI units to a string."""
@@ -53,8 +54,8 @@ watt = W = joule / second
 delta_nu_cs = 9192631770 / second
 c = speed_of_light = 299792458 * meter / second
 h = planck = 6.62607015e-34 * joule * second
+hbar = h/(2*math.pi)
 eV = electron_volt = 1.602176634e-19 * joule
 k = boltzmann = 1.380649e-23 * joule / kelvin
 NA = avogadro = 6.02214076e23 / mole
 Kcd 		= 683 *  candela / watt 
-
