@@ -75,3 +75,9 @@ Hz = hertz = 1/s
 W = watt = J/s
 
 ly = year * c
+
+planck_mass = 1.2e19*giga*eV
+planck_length = 1/planck_mass
+planck_time = planck_length
+planck_temperature = planck_mass
+planck_energy = planck_mass
