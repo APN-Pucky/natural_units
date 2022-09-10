@@ -17,7 +17,7 @@ h_bar = natural_unit(massdim='energy')*natural_unit(massdim='time')
 
 # fundamental
 _c0 = const.c * c  # m/s
-_h_bar0 = const.hbar/const.e)*h_bar
+_h_bar0 = const.hbar/const.e*h_bar
 _kb0 = const.k/const.e*k_B
 
 # from wikipedia https://de.wikipedia.org/wiki/Nat%C3%BCrliche_Einheiten
@@ -27,7 +27,7 @@ meter = 1/_h_bar0/_c0 * natural_unit(massdim='length')
 
 s = second = 1/_h_bar0*natural_unit(massdim='time')
 
-gram = 1/kilo*(1/const.e/const.c**2) * natural_unit(massdim='mass')
+gram = 1/kilo*(1/(const.e/const.c**2)) * natural_unit(massdim='mass')
 
 # *c0*c0
 kelvin = 1*_kb0*natural_unit(massdim='temperature')

@@ -1,6 +1,7 @@
 import math
 from .prefix import *
 from . import massdimension as bu
+import scipy.constants as const
 
 class natural_unit(bu.massdimension_unit):
     def __init__(self, *args,**kwargs):
@@ -15,18 +16,18 @@ h_bar = natural_unit(massdim='energy')*natural_unit(massdim='time')
 
 
 # fundamental
-_c0 = 299792458 * c  # m/s
-_h_bar0 = 4.135667662e-15/(2*pi)*h_bar
-_kb0 = 8.617333262145e-5*kb
+_c0 = const.c* c  # m/s
+_h_bar0 = const.hbar/const.e*h_bar
+_kb0 = const.k/const.e*kb
 
 # from wikipedia https://de.wikipedia.org/wiki/Nat%C3%BCrliche_Einheiten
-J = joule = 1/(1.60218e-19)*eV
+J = joule = 1/(const.e)*eV
 
 meter = 1/_h_bar0/_c0 * natural_unit(massdim='length')
 
 s = second = 1/_h_bar0*natural_unit(massdim='time')
 
-gram = 1/kilo*(1/1.78266e-36) * natural_unit(massdim='mass')
+gram = 1/kilo*(1/(const.e/const.c**2)) * natural_unit(massdim='mass')
 
 # *c0*c0
 kelvin = 1*_kb0*natural_unit(massdim='temperature')
@@ -34,11 +35,11 @@ kelvin = 1*_kb0*natural_unit(massdim='temperature')
 # composite
 barn = 1e-28*meter**2
 
-u = 1/(6.022141e26)*kilo*gram
+u = 1/(const.Avogadro)*gram
 
 Bq = 1/s
 Ci = 37*giga * Bq
-year = 31556952 * s  # inclusive
+year = const.year* s  # inclusive
 Hz = hertz = 1/s
 W = watt = J/s
 
