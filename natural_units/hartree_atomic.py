@@ -28,8 +28,9 @@ proton_mass = m_p = m_e*proton_to_electron_mass_ratio
 # undefined
 boltzmann_constant = k_B = None
 
-meter = metre = 1/(4*pi*const.epsilon_0*const.hbar**2/(const.m_e**2*const.e**2)) * hartree_atomic_unit(1,{'length':1})
-gram = 1/kilo * 1/m_e * hartree_atomic_unit(1,{'mass':1})
+meter = metre = 1/(4*pi*const.epsilon_0*const.hbar**2/(const.m_e*const.e**2)) * hartree_atomic_unit(1,{'length':1})
+gram = 1/kilo * 1/const.m_e * hartree_atomic_unit(1,{'mass':1})
+kilogram = kilo*gram
 second = 1/((4*pi*const.epsilon_0)**2*const.hbar**3/(const.m_e*const.e**4)) * hartree_atomic_unit(1,{'time':1})
 coulomb = 1/const.e * hartree_atomic_unit(1,{'charge':1})
 ampere = coulomb/second

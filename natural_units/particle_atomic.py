@@ -32,7 +32,7 @@ boltzmann_constant = k_B = None
 
 # si conversion
 meter = metre = 1/(const.hbar/(const.m_e*const.c)) * particle_atomic_unit(1,{'length':1})
-gram = 1/kilo * 1/m_e * particle_atomic_unit(1,{'mass':1})
+gram = 1/kilo * 1/const.m_e * particle_atomic_unit(1,{'mass':1})
 kilogram = kilo*gram
 second = 1/(const.hbar/const.m_e/const.c**2) * particle_atomic_unit(1,{'time':1})
 coulomb = 1/(const.epsilon_0*const.hbar*const.c)**(1/2) * particle_atomic_unit(1,{'charge':1})

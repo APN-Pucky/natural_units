@@ -32,6 +32,6 @@ boltzmann_constant = k_B = None
 meter = metre = 1/(const.G *const.e**2/(4*pi*const.epsilon_0*const.c**4))**(1/2) * stoney_unit(1,{'length':1})
 gram = 1/kilo * 1/(const.e**2/(4*pi*const.epsilon_0*const.G))**(1/2)  * stoney_unit(1,{'mass':1})
 kilogram = kilo*gram
-second = 1/(const.G*const.e**2/(4*pi*const.epsilon0*const.c**6))**(1/2) * stoney_unit(1,{'time':1})
+second = 1/(const.G*const.e**2/(4*pi*const.epsilon_0*const.c**6))**(1/2) * stoney_unit(1,{'time':1})
 coulomb = 1/(const.e) * stoney_unit(1,{'charge':1})
 ampere = coulomb/second

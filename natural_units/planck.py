@@ -36,4 +36,4 @@ meter = metre = 1/(const.hbar*const.G/(const.c**3))**0.5 * planck_unit(1,{'lengt
 gram = 1/kilo * 1/(const.hbar * const.c/const.G)**0.5 * planck_unit(1,{'mass':1})
 kilogram = kilo*gram
 second = 1/(const.hbar*const.G/(const.c**5))**0.5 * planck_unit(1,{'time':1})
-kelvin = 1/(const.hbar*const.c**5/(const.G * const.k_b**2))**0.5 * planck_unit(1,{'temperature':1})
+kelvin = 1/(const.hbar*const.c**5/(const.G * const.k**2))**0.5 * planck_unit(1,{'temperature':1})
