@@ -1,5 +1,5 @@
 from uncertainties import ufloat
-from natural_units import si_units as si
+from natural_units import si as si
 
 def test_unc():
 	f = ufloat(1, 0.1)*si.meter

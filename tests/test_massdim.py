@@ -1,5 +1,5 @@
 import pytest 
-from natural_units.natural_units import *
+from natural_units.natural import *
 
 def test_massdimensions_value():
 	assert eV.units["massdimension"] == 1

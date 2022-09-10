@@ -1,5 +1,5 @@
 import numpy as np
-from natural_units import si_units as si
+from natural_units import si as si
 
 def test_numpy():
     assert str(np.array([1,2,3])*si.meter) == "[1 m 2 m 3 m]"

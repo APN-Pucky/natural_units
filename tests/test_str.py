@@ -1,6 +1,6 @@
-import natural_units.si_units as si
-import natural_units.num_units as u
-import natural_units.natural_units as nu
+import natural_units.si as si
+import natural_units.plain_natural as u
+import natural_units.natural as nu
 
 def test_si():
 	assert str(si.meter) == "1 m"

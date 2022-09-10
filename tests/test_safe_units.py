@@ -1,7 +1,7 @@
-from natural_units.base_units import IncompatibleUnitsException
+from natural_units.base import IncompatibleUnitsException
 import pytest
-from natural_units import natural_units as nu
-from natural_units import si_units as si
+from natural_units import natural as nu
+from natural_units import si as si
 
 def test_must_fail():
 	with pytest.raises(IncompatibleUnitsException):

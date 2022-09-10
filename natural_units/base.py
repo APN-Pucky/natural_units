@@ -1,3 +1,5 @@
+import numpy as np
+
 class IncompatibleUnitsException(Exception):
     pass
 
@@ -21,6 +23,9 @@ class base_unit:
             units = {}
         self.units = units
 
+    def is_number(self):
+        return self.units == {} or np.all([v == 0 for k,v in self.units.items()])
+
     def check (self,other):
         assert self.compatible(other)
     def compatible(self, other):
@@ -28,12 +33,12 @@ class base_unit:
 
     def __pow__(self, other, modulo=None):
         if isinstance(other, base_unit):
-            assert other.units == {}
+            assert other.is_number()
             other = other.value
         return self.__class__(self.value**other, {k:v*other for k,v in self.units.items()})
 
     def __rpow__(self, other, modulo=None):
-        assert self.units == {}
+        assert self.is_number()
         return other**self.value
 
     def __radd__(self, other):
@@ -42,7 +47,7 @@ class base_unit:
                 raise IncompatibleUnitsException(str(self) + " and " + str(other) + " are not addible")
             return other.__class__(other.value+self.value, self.units)
         else:
-            assert self.units == {}
+            assert self.is_number()
             return other+self.value
 
     def __add__(self, other):
@@ -51,7 +56,7 @@ class base_unit:
                 raise IncompatibleUnitsException(str(self) + " and " + str(other) + " are not addible")
             return self.__class__(self.value + other.value, self.units)
         else:
-            assert self.units== {}
+            assert self.is_number()
             return self.value+other
 
     def __rsub__(self, other):
@@ -60,7 +65,7 @@ class base_unit:
                 raise IncompatibleUnitsException(str(self) + " and " + str(other) + " are not subtractable")
             return other.__class__(other.value - self.value, self.units)
         else:
-            assert self.units== {}
+            assert self.is_number()
             return other - self.value
 
     def __sub__(self, other):
@@ -69,7 +74,7 @@ class base_unit:
                 raise IncompatibleUnitsException(str(self) + " and " + str(other) + " are not subtractable")
             return self.__class__(self.value - other.value, self.units)
         else:
-            assert self.units == {}
+            assert self.is_number()
             return self.value-other
 
     def __rmul__(self, other):
@@ -77,7 +82,7 @@ class base_unit:
             ret = other.__class__(other.value * self.value,_merge_units_add([self.units, other.units]))
         else:
             ret = self.__class__(other * self.value, self.units)
-        if ret.units == {}:
+        if ret.is_number():
             return ret.value
         else:
             return ret
@@ -87,7 +92,7 @@ class base_unit:
             ret = self.__class__(self.value * other.value,_merge_units_add([self.units, other.units]))
         else:
             ret = self.__class__(self.value * other, self.units)
-        if ret.units == {}:
+        if ret.is_number():
             return ret.value
         else:
             return ret
@@ -97,7 +102,7 @@ class base_unit:
             ret = other.__class__(other.value / self.value,_merge_units_add([_invert_units(self.units), other.units]))
         else:
             ret = self.__class__(other / self.value, _invert_units(self.units))
-        if ret.units == {}:
+        if ret.is_number():
             return ret.value
         else:
             return ret
@@ -107,7 +112,7 @@ class base_unit:
             ret = self.__class__(self.value / other.value,_merge_units_add([self.units, _invert_units(other.units)]))
         else:
             ret = self.__class__(self.value / other, self.units)
-        if ret.units == {}:
+        if ret.is_number():
             return ret.value
         else:
             return ret
