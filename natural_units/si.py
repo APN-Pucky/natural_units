@@ -1,5 +1,7 @@
+"""https://en.wikipedia.org/wiki/International_System_of_Units"""
 from . import base as bu
 import math
+import scipy.constants as const
 
 def _si_units_to_str(untis):
     """Convert a dictionary of SI units to a string."""
@@ -52,10 +54,10 @@ watt = W = joule / second
 
 # defining constants
 delta_nu_cs = 9192631770 / second
-c = speed_of_light = 299792458 * meter / second
-h = planck = 6.62607015e-34 * joule * second
-hbar = h/(2*math.pi)
-eV = electron_volt = 1.602176634e-19 * joule
-k = boltzmann = 1.380649e-23 * joule / kelvin
-NA = avogadro = 6.02214076e23 / mole
-Kcd 		= 683 *  candela / watt 
+c = speed_of_light = const.c * meter / second
+h = planck = const.h * joule * second
+h_bar = h/(2*math.pi)
+eV = electron_volt = const.e * joule
+k_B = boltzmann_constant = const.k * joule / kelvin
+N_A = avogadro = const.Avogadro / mole
+K_cd 		= 683 *  candela / watt 

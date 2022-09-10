@@ -19,6 +19,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
+        "scipy"
     ],
     extras_require={
         'dev': [

@@ -1,6 +1,6 @@
 from natural_units.base import IncompatibleUnitsException
 import pytest
-from natural_units import natural as nu
+from natural_units import hep as nu
 from natural_units import si as si
 
 def test_must_fail():

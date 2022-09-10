@@ -6,5 +6,5 @@ Wrapper for various units:
 | ----------- | ----------- |
 | base      | general super class       |
 | si        | m, kg, s, A, K, mol, cd - base        |
-| natural   | $c=\hbar=1$, checks mass dimension compatibility        |
-| plain_natural       | $c=\hbar=1$, like natural, but without mass dimension checks        |
+| natural   | $c=\h_bar=1$, checks mass dimension compatibility        |
+| plain_natural       | $c=\h_bar=1$, like natural, but without mass dimension checks        |

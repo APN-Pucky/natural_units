@@ -1,5 +1,5 @@
+"""https://en.wikipedia.org/wiki/Geometrized_unit_system"""
 import math
-
 from .prefix import *
 from . import base as bu
 from natural_units import prefix

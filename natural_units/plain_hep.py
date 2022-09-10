@@ -1,4 +1,4 @@
-from . import natural as su
+from . import hep as su
 
 # Here we just mirror natural, but without mass dimensions
 for k in su.__dir__():

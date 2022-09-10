@@ -1,4 +1,4 @@
-"""Simplified units."""
+"""Natural units for Python https://en.wikipedia.org/wiki/Natural_units"""
 
 import pkg_resources as pkg  # part of setuptools
 
@@ -12,4 +12,4 @@ except pkg.DistributionNotFound:
 __version__ = version
 
 from .core import *
-from .plain_natural import *
+from .plain_hep import *
