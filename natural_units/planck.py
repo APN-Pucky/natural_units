@@ -2,7 +2,7 @@
 
 import math
 import scipy.constants as const
-from .prefix import *
+from .prefix import kilo
 from . import base as bu
 pi = math.pi
 
@@ -30,3 +30,10 @@ fine_structure_constant = alpha = None
 elementary_charge = e = None
 vacuum_permittivity = epsilon_0 = None
 coulomb_constant = k_e = None
+
+# si conversion
+meter = metre = 1/(const.hbar*const.G/(const.c**3))**0.5 * planck_unit(1,{'length':1})
+gram = 1/kilo * 1/(const.hbar * const.c/const.G)**0.5 * planck_unit(1,{'mass':1})
+kilogram = kilo*gram
+second = 1/(const.hbar*const.G/(const.c**5))**0.5 * planck_unit(1,{'time':1})
+kelvin = 1/(const.hbar*const.c**5/(const.G * const.k_b**2))**0.5 * planck_unit(1,{'temperature':1})

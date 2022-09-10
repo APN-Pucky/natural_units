@@ -1,6 +1,7 @@
 """https://en.wikipedia.org/wiki/International_System_of_Units"""
 from . import base as bu
 import math
+import prefix
 import scipy.constants as const
 
 def _si_units_to_str(untis):
@@ -48,9 +49,13 @@ candela = si_unit(1, {'candela': 1})
 
 
 # derived units
+gram = g = kilogram/prefix.kilo
 hertz = Hz = 1 / second
 joule = J = kg * meter ** 2 / second ** 2
 watt = W = joule / second
+volt = V = watt / ampere
+coulomb = C = ampere * second
+
 
 # defining constants
 delta_nu_cs = 9192631770 / second
