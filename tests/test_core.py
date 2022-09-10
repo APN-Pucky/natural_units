@@ -1,5 +1,5 @@
 import pytest
-from natural_units import *
+from natural_units import meter,centi,convert,kilo,to,gram
 from natural_units import hartree_atomic as ha
 from natural_units import particle_atomic as pa
 from natural_units import planck 
@@ -28,8 +28,6 @@ def test_from_si():
 	assert planck.planck_unit.from_si(si.meter)*to(planck.meter) == pytest.approx(1.0,rel=1e-3)
 
 def test_to():
-	assert ha.meter.to(ha.hartree_atomic_unit)*to(ha.meter) == pytest.approx(1.0,rel=1e-3)
-	assert pa.meter.to(pa.particle_atomic_unit)*to(pa.meter) == pytest.approx(1.0,rel=1e-3)
-	assert qcd.meter.to(qcd.qcd_unit)*to(qcd.meter) == pytest.approx(1.0,rel=1e-3)
-	assert stoney.meter.to(stoney.stoney_unit)*to(stoney.meter) == pytest.approx(1.0,rel=1e-3)
-	assert planck.meter.to(planck.planck_unit)*to(planck.meter) == pytest.approx(1.0,rel=1e-3)
+	for m1 in [si,ha,pa,planck,qcd,stoney]:
+		for m2 in [si,ha,pa,planck,qcd,stoney]:
+			assert m1.meter.to(m2.meter.__class__)*to(m2.meter)== pytest.approx(1.0,rel=1e-3)

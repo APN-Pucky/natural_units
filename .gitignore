@@ -18,3 +18,5 @@ debug_table.csv
 test.txt
 test.gif
 jupyter_execute
+.coverage 
+coverave.xml
