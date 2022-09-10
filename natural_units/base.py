@@ -36,6 +36,9 @@ class base_unit:
     def compatible(self, other):
         return self.units==other.units
 
+    def to(self,unit_class):
+        return unit_class.from_si(self.to_si())
+
     def to_si(self):
         raise NotImplementedError()
 
