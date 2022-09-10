@@ -8,6 +8,7 @@ Wrapper for various units:
 | si        | m, kg, s, A, K, mol, cd       |
 | hep   | $c=\hbar=\epsilon_0=k_B=1$         | checks mass dimension compatibility | 
 | plain_hep       | $c=\hbar=\epsilon_0=k_B=1$         | like natural, but without mass dimension checks |
+| geometrized | $c=G=1$ | checks length dimension compatibility |
 | planck | $c=\hbar=G=k_B=1$ | |
 | stoney | $c=G=k_e=e=1$ | |
 | hartree_atomic | $e=m_e=\hbar=k_e=1$ | |
