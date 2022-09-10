@@ -17,6 +17,5 @@ jobs:
         - uses: APN-Pucky/make-python-action@main
           with:
             test: true
-            publish: false
             doc: false
 
