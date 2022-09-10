@@ -11,6 +11,10 @@ def _merge_units_add(unit_array):
                 d[k] = d[k] + v
             else:
                 d[k] = v
+    # remove zero units
+    for unit in list(d.keys()):
+        if d[unit] == 0:
+            del d[unit]
     return d
 
 def _invert_units(units):
@@ -28,8 +32,15 @@ class base_unit:
 
     def check (self,other):
         assert self.compatible(other)
+
     def compatible(self, other):
-        return self.units== other.units
+        return self.units==other.units
+
+    def to_si(self):
+        raise NotImplementedError()
+
+    def from_si(self):
+        raise NotImplementedError()
 
     def __pow__(self, other, modulo=None):
         if isinstance(other, base_unit):

@@ -1,14 +1,31 @@
 """https://en.wikipedia.org/wiki/Natural_units"""
 import math
 import scipy.constants as const
+
+from natural_units.core import ot, to
 from .prefix import kilo
 from . import base as bu
+from . import si
+
 pi = math.pi
 
 class particle_atomic_unit(bu.base_unit):
     def __init__(self, *args,**kwargs):
         super().__init__(*args,**kwargs)
 
+    def from_si(self):
+        siv = particle_atomic_unit(1,{})*self
+        map = {'coulomb':coulomb/si.coulomb,'metre':meter/si.meter,'kilogram':kilogram/si.kilogram,'second':second/si.second}
+        for u in self.units:
+            siv *= ot(map[u]**self.units[u])
+        return siv
+
+    def to_si(self):
+        siv = si.si_unit(1,{})*self
+        map = {'charge':coulomb/si.coulomb,'length':meter/si.meter,'mass':kilogram/si.kilogram,'time':second/si.second}
+        for u in self.units:
+            siv *= to(map[u]**self.units[u])
+        return siv
 
 speed_of_light = c = particle_atomic_unit(1,{'length':1,'time':-1})
 electron_mass = m_e = particle_atomic_unit(1,{'mass':1})

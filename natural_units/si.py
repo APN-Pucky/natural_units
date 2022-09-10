@@ -4,37 +4,45 @@ import math
 from .prefix import kilo
 import scipy.constants as const
 
-def _si_units_to_str(untis):
-    """Convert a dictionary of SI units to a string."""
-    ret = ""
-    for unit, power in untis.items():
-        unit = {"metre":"m","kilogram":"kg","second":"s","ampere":"A","kelvin":"K","mole":"mol","candela":"cd"}[unit]
-        if power == 1:
-            ret += unit
-        else:
-            ret += unit + "^" + power.__str__()
-    return ret
 
-def _in_si_units(units):
-    """Check if a dictionary of units is in SI units."""
-    return all([unit in ["metre","kilogram","second","ampere","kelvin","mole","candela"] for unit in units])
 
 class si_unit(bu.base_unit):
+    def to_si(self):
+        return self
+
+    def from_si(other):
+        return other
+
+    def _si_units_to_str(self):
+        """Convert a dictionary of SI units to a string."""
+        ret = ""
+        for unit, power in self.units.items():
+             unit = {"metre":"m","kilogram":"kg","second":"s","ampere":"A","kelvin":"K","mole":"mol","candela":"cd"}[unit]
+             if power == 1:
+                 ret += unit
+             else:
+                 ret += unit + "^" + power.__str__()
+        return ret
+
+    def _in_si_units(self):
+        """Check if a dictionary of units is in SI units."""
+        return all([unit in ["metre","kilogram","second","ampere","kelvin","mole","candela"] for unit in self.units.keys()])
+
     def __str__(self):
-        if _in_si_units(self.units.keys()):
-            return self.value.__str__() + " " + _si_units_to_str(self.units) + ""
+        if self._in_si_units():
+            return self.value.__str__() + " " + self._si_units_to_str() + ""
         else:
             return super().__str__()
 
     def __repr__(self):
-        if _in_si_units(self.units.keys()):
-            return self.value.__repr__() + " " + _si_units_to_str(self.units) + ""
+        if self._in_si_units():
+            return self.value.__repr__() + " " + self._si_units_to_str() + ""
         else:
             return super().__repr__()
 
     def __format__(self, fmt):
-        if _in_si_units(self.units.keys()):
-            return self.value.__format__(fmt) + " " + _si_units_to_str(self.units) + ""
+        if self._in_si_units():
+            return self.value.__format__(fmt) + " " + self._si_units_to_str() + ""
         else:
             return super().__format__(fmt)
 

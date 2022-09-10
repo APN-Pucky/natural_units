@@ -4,3 +4,6 @@ def convert(x, u):
 
 def to(u):
     return 1/u
+
+def ot(u):
+    return u

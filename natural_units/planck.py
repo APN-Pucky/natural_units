@@ -2,13 +2,30 @@
 
 import math
 import scipy.constants as const
+
+from natural_units.core import ot, to
 from .prefix import kilo
 from . import base as bu
+from . import si
 pi = math.pi
 
 class planck_unit(bu.base_unit):
     def __init__(self, *args,**kwargs):
         super().__init__(*args,**kwargs)
+
+    def from_si(self):
+        siv = planck_unit(1,{})*self
+        map = {'kelvin':kelvin/si.kelvin,'metre':meter/si.meter,'kilogram':kilogram/si.kilogram,'second':second/si.second}
+        for u in self.units:
+            siv *= ot(map[u]**self.units[u])
+        return siv
+
+    def to_si(self):
+        siv = si.si_unit(1,{})*self
+        map = {'temperature':kelvin/si.kelvin,'length':meter/si.meter,'mass':kilogram/si.kilogram,'time':second/si.second}
+        for u in self.units:
+            siv *= to(map[u]**self.units[u])
+        return siv
 
 
 speed_of_light = c = planck_unit(1,{'length':1,'time':-1})
