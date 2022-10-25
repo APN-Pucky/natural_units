@@ -14,3 +14,7 @@ Wrapper for various units:
 | hartree_atomic | $e=m_e=\hbar=k_e=1$ | |
 | particle_atomic | $c=m_e=\hbar=\epsilon_0=1$ | |
 | qcd | $c = m_p=\hbar=\epsilon_0 = 1$ | |
+
+There are many similar projects:
+ - https://unum.readthedocs.io/en/latest/index.html
+ - ...
