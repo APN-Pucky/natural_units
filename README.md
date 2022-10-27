@@ -17,4 +17,5 @@ Wrapper for various units:
 
 ### Similar projects:
  - https://unum.readthedocs.io/en/latest/index.html
+ - https://github.com/misho104/natural_units
  - ...
